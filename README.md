@@ -43,10 +43,15 @@ cp .env.example .env
 Open the .env file and update the following values:
 
 DB_HOST: Database host (e.g., localhost)
+
 DB_USER: Database username
+
 DB_PASSWORD: Database password
+
 DB_NAME: Database name
+
 PORT: The port number your app will run on
+
 
 ### 4. Start the Project
 
