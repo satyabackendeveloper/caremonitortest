@@ -49,7 +49,7 @@ class HeartRateRepository {
         await HeartRate.bulkCreate(batch);
       }
 
-      return batchData.map((data) => ({
+      const processed_heart_rate = batchData.map((data) => ({
         from_date: data.from_date,
         to_date: data.to_date,
         measurement: {
@@ -57,6 +57,14 @@ class HeartRateRepository {
           high: data.high,
         },
       }));
+
+      return {
+        ...heartRateData,
+        clinical_data: {
+          ...heartRateData.clinical_data,
+          HEART_RATE: processed_heart_rate,
+        }
+      }
 
     } catch (error) {
       const status = error.status || 500;
